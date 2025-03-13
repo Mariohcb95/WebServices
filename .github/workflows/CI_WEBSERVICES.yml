@@ -17,4 +17,4 @@ jobs:
           java-version: '17'
       
       - name: Test CI
-        run: echo "SUBIU O CI!"
+        run: echo "SUBIU O CI BACK-END!"
