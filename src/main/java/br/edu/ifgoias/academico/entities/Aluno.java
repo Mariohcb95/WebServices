@@ -28,7 +28,7 @@ public class Aluno implements Serializable {
 	private String sexo;
 
 	@Column(name = "dt_nasc", nullable = false)
-	private Date dt_nasc;
+	private Date dtNasc;
 
 	@ManyToOne
 	@JoinColumn(name = "idcurso")
@@ -42,7 +42,7 @@ public class Aluno implements Serializable {
 		this.idaluno = id;
 		this.nome = nome;
 		this.sexo = sexo;
-		this.dt_nasc = date;
+		this.dtNasc = date;
 	}
 
 	public Integer getIdaluno() {
@@ -69,12 +69,12 @@ public class Aluno implements Serializable {
 		this.sexo = sexo;
 	}
 
-	public Date getDt_nasc() {
-		return dt_nasc;
+	public Date getDtNasc() {
+		return dtNasc;
 	}
 
-	public void setDt_nasc(Date dt_nasc) {
-		this.dt_nasc = dt_nasc;
+	public void setDtNasc(Date dtNasc) {
+		this.dtNasc = dtNasc;
 	}
 
 	public Curso getCurso() {
@@ -87,7 +87,7 @@ public class Aluno implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dt_nasc, idaluno, nome, sexo);
+		return Objects.hash(dtNasc, idaluno, nome, sexo);
 	}
 
 	@Override
@@ -99,13 +99,13 @@ public class Aluno implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Aluno other = (Aluno) obj;
-		return Objects.equals(dt_nasc, other.dt_nasc) && Objects.equals(idaluno, other.idaluno)
+		return Objects.equals(dtNasc, other.dtNasc) && Objects.equals(idaluno, other.idaluno)
 				&& Objects.equals(nome, other.nome) && Objects.equals(sexo, other.sexo);
 	}
 
 	@Override
 	public String toString() {
-		return "Aluno [idaluno=" + idaluno + ", nome=" + nome + ", sexo=" + sexo + ", dt_nasc=" + dt_nasc + "]";
+		return "Aluno [idaluno=" + idaluno + ", nome=" + nome + ", sexo=" + sexo + ", dt_nasc=" + dtNasc + "]";
 	}
 
 }
