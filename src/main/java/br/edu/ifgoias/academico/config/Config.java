@@ -20,9 +20,9 @@ public class Config implements CommandLineRunner {
 	private AlunoRepository alunoRep;
 	
 	@Autowired
-	public Config (CursoRepository CursoRep, AlunoRepository AlunoRep) {
-		this.cursoRep = CursoRep;
-		this.alunoRep = AlunoRep;
+	public Config (CursoRepository cursoRep, AlunoRepository alunoRep) {
+		this.cursoRep = cursoRep;
+		this.alunoRep = alunoRep;
 	}
 	
 	@Override
