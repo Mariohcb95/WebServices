@@ -1,5 +1,6 @@
 package br.edu.ifgoias.academico.config;
 
+import java.util.logging.Logger;
 import java.sql.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,49 +8,38 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
 import br.edu.ifgoias.academico.entities.Aluno;
-import br.edu.ifgoias.academico.entities.Curso;
 import br.edu.ifgoias.academico.repositories.AlunoRepository;
 import br.edu.ifgoias.academico.repositories.CursoRepository;
 
 @Configuration
 public class Config implements CommandLineRunner {
-
-	@Autowired
-	private CursoRepository cursoRep;
+	private static final Logger logger = Logger.getLogger(Config.class.getName());
+	
+	private CursoRepository cursoRep;	
+	
+	private AlunoRepository alunoRep;
 	
 	@Autowired
-	private AlunoRepository alunoRep;
+	public Config (CursoRepository CursoRep, AlunoRepository AlunoRep) {
+		this.cursoRep = CursoRep;
+		this.alunoRep = AlunoRep;
+	}
 	
 	@Override
 	public void run(String... args) throws Exception {
 		
-		// Curso c1 = new Curso(null,"Teste1");
 
-				// Curso c2 = new Curso(null,"Teste2");
+		logger.info("Qtde Cursos: " + cursoRep.count());
 
-				// cursoRep.save(c1);
+		Aluno a1 = new Aluno(null, "Caroline", "Feminino", Date.valueOf("2000-04-24"));
 
-				// cursoRep.save(c2);
+		Aluno a2 = new Aluno(null, "Isabelle", "Feminino", Date.valueOf("2000-12-28"));
 
-				// cursoRep.deleteById(7);
+		alunoRep.save(a1);
 
-				// cursoRep.deleteById(8);
+		alunoRep.save(a2);
 
-				System.out.println("Qtde Cursos: " + cursoRep.count());
-
-				Aluno a1 = new Aluno(null, "Caroline", "Feminino", Date.valueOf("2000-04-24"));
-
-				Aluno a2 = new Aluno(null, "Isabelle", "Feminino", Date.valueOf("2000-12-28"));
-
-				alunoRep.save(a1);
-
-				alunoRep.save(a2);
-
-				// alunoRep.deleteById(1);
-
-				// alunoRep.deleteById(2);
-
-				System.out.println("Qtde Alunos: " + alunoRep.count());
+		logger.info("Qtde Alunos: " + alunoRep.count());
 	}
 
 }
