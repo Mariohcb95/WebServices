@@ -1,0 +1,20 @@
+name: TESTS
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Define o sistema operacional 
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4  # Clona o código do repositório
+
+      - name: Configurar JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'   # OpenJDK pela Eclipse Foundation
+          java-version: '17'
+      
+      - name: Test CI
+        run: echo "SUBIU O CI BACK-END!"
