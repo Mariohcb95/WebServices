@@ -112,7 +112,7 @@ class AlunoServiceTest {
 
     @Test
     void testToStringAluno() {
-        String expected = "Aluno [idaluno=4, nome=Felipe, sexo=M, dt_nasc=" + aluno.getDtNasc() + "]";
+        String expected = "Aluno [idaluno=4, nome=Felipe, sexo=M]";
         String teste = aluno.toString();
 
         assertEquals(expected, teste);

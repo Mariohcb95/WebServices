@@ -105,7 +105,7 @@ public class Aluno implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Aluno [idaluno=" + idaluno + ", nome=" + nome + ", sexo=" + sexo + ", dt_nasc=" + dtNasc + "]";
+		return "Aluno [idaluno=" + idaluno + ", nome=" + nome + ", sexo=" + sexo + "]";
 	}
 
 }
