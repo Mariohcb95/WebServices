@@ -25,13 +25,13 @@ public class Curso implements Serializable {
 	@Column (name = &quot;nomecurso&quot;, nullable= false )
 	private String nomecurso;
 	
-<span class="pc" id="L28">	@OneToMany (mappedBy = &quot;curso&quot;)</span>
+<span class="fc" id="L28">	@OneToMany (mappedBy = &quot;curso&quot;)</span>
 	@JsonIgnore
 	private List&lt;Aluno&gt; alunos = new ArrayList&lt;&gt;();
 
-<span class="nc" id="L32">	public Curso() {</span>
+<span class="fc" id="L32">	public Curso() {</span>
 
-<span class="nc" id="L34">	}</span>
+<span class="fc" id="L34">	}</span>
 	
 <span class="fc" id="L36">	public Curso(Integer idcurso, String nome) {</span>
 <span class="fc" id="L37">		this.idcurso = idcurso;</span>
@@ -39,7 +39,7 @@ public class Curso implements Serializable {
 <span class="fc" id="L39">	}</span>
 
 	public Integer getIdcurso() {
-<span class="nc" id="L42">		return idcurso;</span>
+<span class="fc" id="L42">		return idcurso;</span>
 	}
 
 	public void setIdcurso(Integer idcurso) {

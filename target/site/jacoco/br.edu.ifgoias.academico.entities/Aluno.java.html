@@ -34,9 +34,9 @@ public class Aluno implements Serializable {
 	@JoinColumn(name = &quot;idcurso&quot;)
 	private Curso curso;
 
-<span class="nc" id="L37">	public Aluno() {</span>
+<span class="fc" id="L37">	public Aluno() {</span>
 
-<span class="nc" id="L39">	}</span>
+<span class="fc" id="L39">	}</span>
 
 <span class="fc" id="L41">	public Aluno(Integer id, String nome, String sexo, Date date) {</span>
 <span class="fc" id="L42">		this.idaluno = id;</span>
@@ -105,7 +105,7 @@ public class Aluno implements Serializable {
 
 	@Override
 	public String toString() {
-<span class="fc" id="L108">		return &quot;Aluno [idaluno=&quot; + idaluno + &quot;, nome=&quot; + nome + &quot;, sexo=&quot; + sexo + &quot;, dt_nasc=&quot; + dtNasc + &quot;]&quot;;</span>
+<span class="fc" id="L108">		return &quot;Aluno [idaluno=&quot; + idaluno + &quot;, nome=&quot; + nome + &quot;, sexo=&quot; + sexo + &quot;]&quot;;</span>
 	}
 
 }

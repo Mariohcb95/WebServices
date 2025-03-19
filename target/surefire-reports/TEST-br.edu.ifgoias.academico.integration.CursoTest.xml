@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.723" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="br.edu.ifgoias.academico.integration.CursoTest" time="0.121" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -46,7 +46,7 @@
     <property name="localRepository" value="C:\Users\Suasvendas\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\SUASVE~1\AppData\Local\Temp\"/>
-    <property name="com.zaxxer.hikari.pool_number" value="2"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="17"/>
     <property name="user.dir" value="C:\Users\Suasvendas\Desktop\projeto_qts\WebServices"/>
     <property name="os.arch" value="amd64"/>
@@ -62,14 +62,32 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testDeleteAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.633"/>
-  <testcase name="testFindAllAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.012"/>
-  <testcase name="testUpdateAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.013"/>
-  <testcase name="testInsertAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.006"/>
-  <testcase name="testToStringAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.006"/>
-  <testcase name="testFindByIdAlunoNaoEncontrado" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.014"/>
-  <testcase name="testAlunoNullable" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.006"/>
-  <testcase name="testEqualsAndHashCodeAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.005"/>
-  <testcase name="testFindByIdAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.005"/>
-  <testcase name="testUpdateAlunoNaoEncontrado" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.006"/>
+  <testcase name="testFindCursoById" classname="br.edu.ifgoias.academico.integration.CursoTest" time="0.059">
+    <system-out><![CDATA[Hibernate: insert into curso (nomecurso,idcurso) values (?,default)
+Hibernate: select c1_0.idcurso,c1_0.nomecurso from curso c1_0 where c1_0.idcurso=?
+Hibernate: select c1_0.idcurso,c1_0.nomecurso from curso c1_0 where c1_0.idcurso=?
+Hibernate: delete from curso where idcurso=?
+Hibernate: select c1_0.idcurso,c1_0.nomecurso from curso c1_0 where c1_0.idcurso=?
+]]></system-out>
+  </testcase>
+  <testcase name="testFindallCurso" classname="br.edu.ifgoias.academico.integration.CursoTest" time="0.007">
+    <system-out><![CDATA[Hibernate: select c1_0.idcurso,c1_0.nomecurso from curso c1_0
+]]></system-out>
+  </testcase>
+  <testcase name="testCreteCurso" classname="br.edu.ifgoias.academico.integration.CursoTest" time="0.013">
+    <system-out><![CDATA[Hibernate: insert into curso (nomecurso,idcurso) values (?,default)
+Hibernate: select c1_0.idcurso,c1_0.nomecurso from curso c1_0 where c1_0.idcurso=?
+Hibernate: delete from curso where idcurso=?
+Hibernate: select c1_0.idcurso,c1_0.nomecurso from curso c1_0 where c1_0.idcurso=?
+]]></system-out>
+  </testcase>
+  <testcase name="testDeleteCursoById" classname="br.edu.ifgoias.academico.integration.CursoTest" time="0.016">
+    <system-out><![CDATA[Hibernate: insert into curso (nomecurso,idcurso) values (?,default)
+Hibernate: select c1_0.idcurso,c1_0.nomecurso from curso c1_0 where c1_0.idcurso=?
+Hibernate: delete from curso where idcurso=?
+Hibernate: select c1_0.idcurso,c1_0.nomecurso from curso c1_0 where c1_0.idcurso=?
+Hibernate: select c1_0.idcurso,c1_0.nomecurso from curso c1_0 where c1_0.idcurso=?
+Hibernate: select c1_0.idcurso,c1_0.nomecurso from curso c1_0 where c1_0.idcurso=?
+]]></system-out>
+  </testcase>
 </testsuite>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.723" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="br.edu.ifgoias.academico.integration.AlunoTest" time="10.629" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -46,7 +46,7 @@
     <property name="localRepository" value="C:\Users\Suasvendas\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\SUASVE~1\AppData\Local\Temp\"/>
-    <property name="com.zaxxer.hikari.pool_number" value="2"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="17"/>
     <property name="user.dir" value="C:\Users\Suasvendas\Desktop\projeto_qts\WebServices"/>
     <property name="os.arch" value="amd64"/>
@@ -62,14 +62,69 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testDeleteAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.633"/>
-  <testcase name="testFindAllAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.012"/>
-  <testcase name="testUpdateAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.013"/>
-  <testcase name="testInsertAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.006"/>
-  <testcase name="testToStringAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.006"/>
-  <testcase name="testFindByIdAlunoNaoEncontrado" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.014"/>
-  <testcase name="testAlunoNullable" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.006"/>
-  <testcase name="testEqualsAndHashCodeAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.005"/>
-  <testcase name="testFindByIdAluno" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.005"/>
-  <testcase name="testUpdateAlunoNaoEncontrado" classname="br.edu.ifgoias.academico.unit.AlunoServiceTest" time="0.006"/>
+  <testcase name="testFindallAluno" classname="br.edu.ifgoias.academico.integration.AlunoTest" time="0.745">
+    <system-out><![CDATA[
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.0)
+
+2025-03-19T20:41:53.907-03:00  INFO 24156 --- [           main] b.e.i.academico.integration.AlunoTest    : Starting AlunoTest using Java 17 with PID 24156 (started by Suasvendas in C:\Users\Suasvendas\Desktop\projeto_qts\WebServices)
+2025-03-19T20:41:53.916-03:00  INFO 24156 --- [           main] b.e.i.academico.integration.AlunoTest    : The following 1 profile is active: "integration-test"
+2025-03-19T20:41:55.330-03:00  INFO 24156 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-19T20:41:55.446-03:00  INFO 24156 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 99 ms. Found 2 JPA repository interfaces.
+2025-03-19T20:41:56.302-03:00  INFO 24156 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-19T20:41:56.422-03:00  INFO 24156 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
+2025-03-19T20:41:56.426-03:00  INFO 24156 --- [           main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2025-03-19T20:41:56.884-03:00  INFO 24156 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-03-19T20:41:57.236-03:00  INFO 24156 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-19T20:41:57.295-03:00  INFO 24156 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-19T20:41:57.779-03:00  INFO 24156 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:jdbctest user=SA
+2025-03-19T20:41:57.789-03:00  INFO 24156 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-19T20:41:57.866-03:00  INFO 24156 --- [           main] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.H2Dialect, version: 2.1.214
+2025-03-19T20:41:58.583-03:00  INFO 24156 --- [           main] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2025-03-19T20:41:59.632-03:00  INFO 24156 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+Hibernate: create table aluno (idaluno integer generated by default as identity, dt_nasc timestamp(6) not null, nome varchar(255) not null, sexo varchar(255) not null, idcurso integer, primary key (idaluno))
+Hibernate: create table curso (idcurso integer generated by default as identity, nomecurso varchar(255) not null, primary key (idcurso))
+Hibernate: alter table if exists aluno add constraint FK6xa2hknkeko8qeqd0u7b3yqfg foreign key (idcurso) references curso
+2025-03-19T20:41:59.727-03:00  INFO 24156 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-19T20:42:00.418-03:00  WARN 24156 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-19T20:42:01.033-03:00  INFO 24156 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:jdbctest'
+2025-03-19T20:42:01.124-03:00  INFO 24156 --- [           main] b.e.i.academico.integration.AlunoTest    : Started AlunoTest in 8.002 seconds (process running for 10.594)
+Hibernate: select count(*) from curso c1_0
+2025-03-19T20:42:01.647-03:00  INFO 24156 --- [           main] br.edu.ifgoias.academico.config.Config   : Qtde Cursos: 0
+Hibernate: insert into aluno (idcurso,dt_nasc,nome,sexo,idaluno) values (?,?,?,?,default)
+Hibernate: insert into aluno (idcurso,dt_nasc,nome,sexo,idaluno) values (?,?,?,?,default)
+Hibernate: select count(*) from aluno a1_0
+2025-03-19T20:42:01.686-03:00  INFO 24156 --- [           main] br.edu.ifgoias.academico.config.Config   : Qtde Alunos: 2
+Hibernate: select a1_0.idaluno,a1_0.idcurso,a1_0.dt_nasc,a1_0.nome,a1_0.sexo from aluno a1_0
+]]></system-out>
+  </testcase>
+  <testcase name="testCreteAluno" classname="br.edu.ifgoias.academico.integration.AlunoTest" time="0.064">
+    <system-out><![CDATA[Hibernate: insert into aluno (idcurso,dt_nasc,nome,sexo,idaluno) values (?,?,?,?,default)
+Hibernate: select a1_0.idaluno,c1_0.idcurso,c1_0.nomecurso,a1_0.dt_nasc,a1_0.nome,a1_0.sexo from aluno a1_0 left join curso c1_0 on c1_0.idcurso=a1_0.idcurso where a1_0.idaluno=?
+Hibernate: delete from aluno where idaluno=?
+Hibernate: select a1_0.idaluno,c1_0.idcurso,c1_0.nomecurso,a1_0.dt_nasc,a1_0.nome,a1_0.sexo from aluno a1_0 left join curso c1_0 on c1_0.idcurso=a1_0.idcurso where a1_0.idaluno=?
+]]></system-out>
+  </testcase>
+  <testcase name="testDeleteAlunoById" classname="br.edu.ifgoias.academico.integration.AlunoTest" time="0.02">
+    <system-out><![CDATA[Hibernate: insert into aluno (idcurso,dt_nasc,nome,sexo,idaluno) values (?,?,?,?,default)
+Hibernate: select a1_0.idaluno,c1_0.idcurso,c1_0.nomecurso,a1_0.dt_nasc,a1_0.nome,a1_0.sexo from aluno a1_0 left join curso c1_0 on c1_0.idcurso=a1_0.idcurso where a1_0.idaluno=?
+Hibernate: delete from aluno where idaluno=?
+Hibernate: select a1_0.idaluno,c1_0.idcurso,c1_0.nomecurso,a1_0.dt_nasc,a1_0.nome,a1_0.sexo from aluno a1_0 left join curso c1_0 on c1_0.idcurso=a1_0.idcurso where a1_0.idaluno=?
+Hibernate: select a1_0.idaluno,c1_0.idcurso,c1_0.nomecurso,a1_0.dt_nasc,a1_0.nome,a1_0.sexo from aluno a1_0 left join curso c1_0 on c1_0.idcurso=a1_0.idcurso where a1_0.idaluno=?
+Hibernate: select a1_0.idaluno,c1_0.idcurso,c1_0.nomecurso,a1_0.dt_nasc,a1_0.nome,a1_0.sexo from aluno a1_0 left join curso c1_0 on c1_0.idcurso=a1_0.idcurso where a1_0.idaluno=?
+]]></system-out>
+  </testcase>
+  <testcase name="testFindAlunoById" classname="br.edu.ifgoias.academico.integration.AlunoTest" time="0.023">
+    <system-out><![CDATA[Hibernate: insert into aluno (idcurso,dt_nasc,nome,sexo,idaluno) values (?,?,?,?,default)
+Hibernate: select a1_0.idaluno,c1_0.idcurso,c1_0.nomecurso,a1_0.dt_nasc,a1_0.nome,a1_0.sexo from aluno a1_0 left join curso c1_0 on c1_0.idcurso=a1_0.idcurso where a1_0.idaluno=?
+Hibernate: select a1_0.idaluno,c1_0.idcurso,c1_0.nomecurso,a1_0.dt_nasc,a1_0.nome,a1_0.sexo from aluno a1_0 left join curso c1_0 on c1_0.idcurso=a1_0.idcurso where a1_0.idaluno=?
+Hibernate: delete from aluno where idaluno=?
+Hibernate: select a1_0.idaluno,c1_0.idcurso,c1_0.nomecurso,a1_0.dt_nasc,a1_0.nome,a1_0.sexo from aluno a1_0 left join curso c1_0 on c1_0.idcurso=a1_0.idcurso where a1_0.idaluno=?
+]]></system-out>
+  </testcase>
 </testsuite>
