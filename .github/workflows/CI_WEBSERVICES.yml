@@ -1,20 +1,44 @@
-name: TESTS
-
+name: CI
 on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # Define o sistema operacional 
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout do código
-        uses: actions/checkout@v4  # Clona o código do repositório
+        uses: actions/checkout@v4
 
       - name: Configurar JDK
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'   # OpenJDK pela Eclipse Foundation
+          distribution: 'temurin'
           java-version: '17'
       
-      - name: Test CI
-        run: echo "SUBIU O CI BACK-END!"
+      - name: Cache dependências Maven
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Compilar e testar com Maven
+        run: mvn clean test
+
+      - name: Listar arquivos no diretório target/surefire-reports
+        run: ls -R target/surefire-reports
+
+      - name: Publicar relatórios de testes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: target/surefire-reports
+
+      - name: Publicar relatório de cobertura JaCoCo
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: target/site/jacoco
