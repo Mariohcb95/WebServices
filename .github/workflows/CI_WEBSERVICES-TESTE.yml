@@ -36,3 +36,10 @@ jobs:
         with:
           name: test-reports
           path: target/surefire-reports
+
+      - name: Publicar relatório de cobertura JaCoCo
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: jacoco-report
+          path: target/site/jacoco
