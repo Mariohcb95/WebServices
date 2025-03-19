@@ -29,7 +29,8 @@ public class CursoService {
 	}
 	
 	public void delete(Integer id) {
-		cursoRep.deleteById(id);
+		Curso existe = findById(id);
+		cursoRep.delete(existe);
 	}
 	
 	public Curso update (Integer id, Curso objAlterado) {
