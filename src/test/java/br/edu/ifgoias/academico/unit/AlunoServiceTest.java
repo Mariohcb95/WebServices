@@ -1,6 +1,6 @@
 package br.edu.ifgoias.academico.unit;
 
-iimport static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
@@ -39,31 +39,31 @@ class AlunoServiceTest {
     @Test
     void testFindAllAluno() {
         Aluno aluno2 = new Aluno(5, "Mario", "M", new Date());
-        when(alunoRepository.findAll()).thenReturn(Arrays.asList(aluno, aluno2)); 
-        
-        assertEquals(2, alunoService.findAll().size()); 
+        when(alunoRepository.findAll()).thenReturn(Arrays.asList(aluno, aluno2));
+
+        assertEquals(2, alunoService.findAll().size());
     }
- 
+
     @Test
     void testFindByIdAluno() {
         when(alunoRepository.findById(4)).thenReturn(Optional.of(aluno));
-        
-        Aluno foundAluno = alunoService.findById(4); 
+
+        Aluno foundAluno = alunoService.findById(4);
         assertNotNull(foundAluno);
         assertEquals(4, foundAluno.getIdaluno().intValue());
     }
 
     @Test
     void testFindByIdAlunoNaoEncontrado() {
-        when(alunoRepository.findById(1)).thenReturn(Optional.empty()); 
-        
-        assertThrows(RuntimeException.class, () -> alunoService.findById(1)); 
+        when(alunoRepository.findById(1)).thenReturn(Optional.empty());
+
+        assertThrows(RuntimeException.class, () -> alunoService.findById(1));
     }
 
     @Test
     void testInsertAluno() {
-        when(alunoRepository.save(aluno)).thenReturn(aluno); 
-        
+        when(alunoRepository.save(aluno)).thenReturn(aluno);
+
         Aluno savedAluno = alunoService.insert(aluno);
         assertNotNull(savedAluno);
         assertEquals(aluno, savedAluno);
@@ -71,17 +71,17 @@ class AlunoServiceTest {
 
     @Test
     void testDeleteAluno() {
-        doNothing().when(alunoRepository).deleteById(4); 
-        
-        assertDoesNotThrow(() -> alunoService.delete(4)); 
+        doNothing().when(alunoRepository).deleteById(4);
+
+        assertDoesNotThrow(() -> alunoService.delete(4));
     }
 
     @Test
     void testUpdateAluno() {
         Aluno alunoAlterado = new Aluno(1, "Paloma", "F", new Date());
 
-        when(alunoRepository.findById(1)).thenReturn(Optional.of(aluno)); 
-        when(alunoRepository.save(any(Aluno.class))).thenReturn(alunoAlterado); 
+        when(alunoRepository.findById(1)).thenReturn(Optional.of(aluno));
+        when(alunoRepository.save(any(Aluno.class))).thenReturn(alunoAlterado);
 
         Aluno updatedAluno = alunoService.update(1, alunoAlterado);
 
@@ -94,19 +94,19 @@ class AlunoServiceTest {
     void testUpdateAlunoNaoEncontrado() {
         Aluno alunoAlterado = new Aluno(1, "Paloma", "F", new Date());
 
-        when(alunoRepository.findById(1)).thenReturn(Optional.empty()); 
+        when(alunoRepository.findById(1)).thenReturn(Optional.empty());
 
         assertThrows(RuntimeException.class, () -> alunoService.update(1, alunoAlterado));
     }
 
     @Test
     void testEqualsAndHashCodeAluno() {
-        Aluno alunoTeste = new Aluno(4, "Felipe", "M", new Date()); 
-        
+        Aluno alunoTeste = new Aluno(4, "Felipe", "M", new Date());
+
         assertEquals(aluno, alunoTeste);
         assertEquals(aluno.hashCode(), alunoTeste.hashCode());
 
-        Aluno alunoTeste1 = new Aluno(5, "Mario", "M", new Date()); 
+        Aluno alunoTeste1 = new Aluno(5, "Mario", "M", new Date());
         assertNotEquals(aluno, alunoTeste1);
     }
 
@@ -114,8 +114,8 @@ class AlunoServiceTest {
     void testToStringAluno() {
         String expected = "Aluno [idaluno=4, nome=Felipe, sexo=M, dt_nasc=" + aluno.getDtNasc() + "]";
         String teste = aluno.toString();
-        
-        assertEquals(expected, teste);  
+
+        assertEquals(expected, teste);
     }
 
     @Test
