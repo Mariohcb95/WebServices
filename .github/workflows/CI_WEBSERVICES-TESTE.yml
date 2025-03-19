@@ -27,6 +27,9 @@ jobs:
       - name: Compilar e testar com Maven
         run: mvn clean test
 
+      - name: Listar arquivos no diretório target/surefire-reports
+        run: ls -R target/surefire-reports
+
       - name: Publicar relatórios de testes
         if: always()
         uses: actions/upload-artifact@v4

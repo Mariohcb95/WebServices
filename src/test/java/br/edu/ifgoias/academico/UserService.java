@@ -1,7 +1,11 @@
 package br.edu.ifgoias.academico;
 
-public class UserService {
-    public String greetUser(String name) {
-        return "Hello, " + name + "!";
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ExampleTest {
+    @Test
+    void testExample() {
+        assertTrue(true);
     }
 }
