@@ -33,12 +33,9 @@ class CursoServiceTest {
 
     @Mock
     private CursoRepository cursoRepository;
-
-    Curso curso;
     
     @BeforeEach
     void setUp() {
-    	//curso = new Curso(21, "Jav");
     	MockitoAnnotations.openMocks(this);
     }
     
@@ -56,7 +53,7 @@ class CursoServiceTest {
     @Test
     void testFindByIdCurso() {
 
-    	curso = new Curso(20, "QTS");
+    	Curso curso = new Curso(20, "QTS");
         when(cursoRepository.findById(20)).thenReturn(Optional.of(curso)); 
 
         Curso result = cursoService.findById(20);

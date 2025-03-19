@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Aluno.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">academico</a> &gt; <a href="index.source.html" class="el_package">br.edu.ifgoias.academico.entities</a> &gt; <span class="el_source">Aluno.java</span></div><h1>Aluno.java</h1><pre class="source lang-java linenums">package br.edu.ifgoias.academico.entities;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Objects;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+@Entity
+public class Aluno implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idaluno;
+
+	@Column(name = &quot;nome&quot;, nullable = false)
+	private String nome;
+
+	@Column(name = &quot;sexo&quot;, nullable = false)
+	private String sexo;
+
+	@Column(name = &quot;dt_nasc&quot;, nullable = false)
+	private Date dtNasc;
+
+	@ManyToOne
+	@JoinColumn(name = &quot;idcurso&quot;)
+	private Curso curso;
+
+<span class="nc" id="L37">	public Aluno() {</span>
+
+<span class="nc" id="L39">	}</span>
+
+<span class="fc" id="L41">	public Aluno(Integer id, String nome, String sexo, Date date) {</span>
+<span class="fc" id="L42">		this.idaluno = id;</span>
+<span class="fc" id="L43">		this.nome = nome;</span>
+<span class="fc" id="L44">		this.sexo = sexo;</span>
+<span class="fc" id="L45">		this.dtNasc = date;</span>
+<span class="fc" id="L46">	}</span>
+
+	public Integer getIdaluno() {
+<span class="fc" id="L49">		return idaluno;</span>
+	}
+
+	public void setIdaluno(Integer idaluno) {
+<span class="nc" id="L53">		this.idaluno = idaluno;</span>
+<span class="nc" id="L54">	}</span>
+
+	public String getNome() {
+<span class="fc" id="L57">		return nome;</span>
+	}
+
+	public void setNome(String nome) {
+<span class="fc" id="L61">		this.nome = nome;</span>
+<span class="fc" id="L62">	}</span>
+
+	public String getSexo() {
+<span class="fc" id="L65">		return sexo;</span>
+	}
+
+	public void setSexo(String sexo) {
+<span class="fc" id="L69">		this.sexo = sexo;</span>
+<span class="fc" id="L70">	}</span>
+
+	public Date getDtNasc() {
+<span class="fc" id="L73">		return dtNasc;</span>
+	}
+
+	public void setDtNasc(Date dtNasc) {
+<span class="fc" id="L77">		this.dtNasc = dtNasc;</span>
+<span class="fc" id="L78">	}</span>
+
+	public Curso getCurso() {
+<span class="nc" id="L81">		return curso;</span>
+	}
+
+	public void setCurso(Curso c) {
+<span class="nc" id="L85">		this.curso = c;</span>
+<span class="nc" id="L86">	}</span>
+
+	@Override
+	public int hashCode() {
+<span class="fc" id="L90">		return Objects.hash(dtNasc, idaluno, nome, sexo);</span>
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+<span class="fc bfc" id="L95" title="All 2 branches covered.">		if (this == obj)</span>
+<span class="fc" id="L96">			return true;</span>
+<span class="pc bpc" id="L97" title="1 of 2 branches missed.">		if (obj == null)</span>
+<span class="nc" id="L98">			return false;</span>
+<span class="pc bpc" id="L99" title="1 of 2 branches missed.">		if (getClass() != obj.getClass())</span>
+<span class="nc" id="L100">			return false;</span>
+<span class="fc" id="L101">		Aluno other = (Aluno) obj;</span>
+<span class="pc bpc" id="L102" title="1 of 4 branches missed.">		return Objects.equals(dtNasc, other.dtNasc) &amp;&amp; Objects.equals(idaluno, other.idaluno)</span>
+<span class="pc bpc" id="L103" title="2 of 4 branches missed.">				&amp;&amp; Objects.equals(nome, other.nome) &amp;&amp; Objects.equals(sexo, other.sexo);</span>
+	}
+
+	@Override
+	public String toString() {
+<span class="fc" id="L108">		return &quot;Aluno [idaluno=&quot; + idaluno + &quot;, nome=&quot; + nome + &quot;, sexo=&quot; + sexo + &quot;, dt_nasc=&quot; + dtNasc + &quot;]&quot;;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

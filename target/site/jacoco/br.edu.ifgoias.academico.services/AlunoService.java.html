@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AlunoService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">academico</a> &gt; <a href="index.source.html" class="el_package">br.edu.ifgoias.academico.services</a> &gt; <span class="el_source">AlunoService.java</span></div><h1>AlunoService.java</h1><pre class="source lang-java linenums">package br.edu.ifgoias.academico.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import br.edu.ifgoias.academico.entities.Aluno;
+import br.edu.ifgoias.academico.repositories.AlunoRepository;
+
+@Service
+<span class="fc" id="L14">public class AlunoService {</span>
+
+	@Autowired
+	private AlunoRepository alunoRep;
+
+	public List&lt;Aluno&gt; findAll() {
+<span class="fc" id="L20">		return alunoRep.findAll();</span>
+	}
+
+	public Aluno findById(Integer id) {
+<span class="fc" id="L24">		return alunoRep.findById(id).orElseThrow(() -&gt; new ResponseStatusException(HttpStatus.NOT_FOUND));</span>
+	}
+
+	public Aluno insert(Aluno obj) {
+<span class="fc" id="L28">		return alunoRep.save(obj);</span>
+	}
+
+	public void delete(Integer id) {
+<span class="fc" id="L32">		alunoRep.deleteById(id);</span>
+<span class="fc" id="L33">	}</span>
+
+	public Aluno update(Integer id, Aluno objAlterado) {
+<span class="fc" id="L36">		return alunoRep.findById(id).map(alunoDB -&gt; {</span>
+<span class="fc" id="L37">			alunoDB.setNome(objAlterado.getNome());</span>
+<span class="fc" id="L38">			alunoDB.setSexo(objAlterado.getSexo());</span>
+<span class="fc" id="L39">			alunoDB.setDtNasc(objAlterado.getDtNasc());</span>
+<span class="fc" id="L40">			return alunoRep.save(alunoDB);</span>
+<span class="fc" id="L41">		}).orElseThrow(() -&gt; new ResponseStatusException(HttpStatus.NOT_FOUND));</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -1,0 +1,10 @@
+br\edu\ifgoias\academico\entities\Aluno.class
+br\edu\ifgoias\academico\repositories\CursoRepository.class
+br\edu\ifgoias\academico\resources\AlunoResource.class
+br\edu\ifgoias\academico\repositories\AlunoRepository.class
+br\edu\ifgoias\academico\services\CursoService.class
+br\edu\ifgoias\academico\resources\CursoResource.class
+br\edu\ifgoias\academico\AcademicoApplication.class
+br\edu\ifgoias\academico\entities\Curso.class
+br\edu\ifgoias\academico\services\AlunoService.class
+br\edu\ifgoias\academico\config\Config.class

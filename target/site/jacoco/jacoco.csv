@@ -1,0 +1,9 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+academico,br.edu.ifgoias.academico.config,Config,55,0,0,0,12,0,3,0,3,0
+academico,br.edu.ifgoias.academico.services,AlunoService,0,66,0,0,0,12,0,9,0,9
+academico,br.edu.ifgoias.academico.services,CursoService,0,62,0,0,0,12,0,9,0,9
+academico,br.edu.ifgoias.academico.resources,CursoResource,44,0,0,0,11,0,6,0,6,0
+academico,br.edu.ifgoias.academico.resources,AlunoResource,44,0,0,0,11,0,6,0,6,0
+academico,br.edu.ifgoias.academico.entities,Curso,45,21,2,0,14,8,8,3,7,3
+academico,br.edu.ifgoias.academico.entities,Aluno,18,116,5,9,9,25,9,13,4,11
+academico,br.edu.ifgoias.academico,AcademicoApplication,8,0,0,0,3,0,2,0,2,0
