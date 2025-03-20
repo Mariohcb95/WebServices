@@ -1,4 +1,5 @@
 br\edu\ifgoias\academico\unit\AlunoServiceTest.class
+br\edu\ifgoias\academico\unit\CursoResourceTest.class
 br\edu\ifgoias\academico\unit\AlunoRepositoryTest.class
 br\edu\ifgoias\academico\integration\CursoTest.class
 br\edu\ifgoias\academico\integration\AlunoTest.class

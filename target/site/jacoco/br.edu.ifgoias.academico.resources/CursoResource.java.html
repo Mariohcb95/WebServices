@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ import br.edu.ifgoias.academico.services.CursoService;
 @RestController
 @CrossOrigin(&quot;http://localhost:4200&quot;)
 @RequestMapping(value = &quot;/cursos&quot;)
-<span class="fc" id="L25">public class CursoResource {</span>
+<span class="fc" id="L26">public class CursoResource {</span>
 	
 	@Autowired
 	private CursoService servico;
@@ -30,45 +31,46 @@ import br.edu.ifgoias.academico.services.CursoService;
 	@GetMapping
 	public ResponseEntity&lt; List&lt;Curso&gt; &gt;  findAll(){
 		
-<span class="nc" id="L33">		List&lt;Curso&gt; cursos = servico.findAll();</span>
+<span class="fc" id="L34">		List&lt;Curso&gt; cursos = servico.findAll();</span>
 		
-<span class="nc" id="L35">		return ResponseEntity.ok().body(cursos);</span>
+<span class="fc" id="L36">		return ResponseEntity.ok().body(cursos);</span>
 		
 	}
 	
 	@GetMapping (value = &quot;/{id}&quot;)
 	public ResponseEntity&lt;Curso&gt; findById(@PathVariable Integer id){
 		
-<span class="nc" id="L42">		Curso curso = servico.findById(id);</span>
+<span class="fc" id="L43">		Curso curso = servico.findById(id);</span>
 		
-<span class="nc" id="L44">		return ResponseEntity.ok().body(curso);</span>
+<span class="fc" id="L45">		return ResponseEntity.ok().body(curso);</span>
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity&lt;Curso&gt; insert(@RequestBody Curso c){
 		
-<span class="nc" id="L51">		 c = servico.insert(c);</span>
+<span class="fc" id="L52">		 c = servico.insert(c);</span>
 		
-<span class="nc" id="L53">		return ResponseEntity.ok().body(c);</span>
+<span class="fc" id="L54">		return ResponseEntity.ok().body(c);</span>
 		
 	} 
 	
 	@DeleteMapping (value = &quot;/{id}&quot;)
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void delete(@PathVariable Integer id){
+	public boolean delete(@PathVariable Integer id){
 		
-<span class="nc" id="L61">		servico.delete(id);</span>
-	
-<span class="nc" id="L63">	}</span>
+<span class="fc" id="L62">		servico.delete(id);</span>
+		
+<span class="fc" id="L64">		return true;</span>
+	}
 	
 	@PutMapping(value = &quot;/{id}&quot;)
 	@ResponseStatus(HttpStatus.OK)
 	public ResponseEntity&lt;Curso&gt; update(@PathVariable Integer id, @RequestBody Curso c  ){
 		
-<span class="nc" id="L69">		c = servico.update(id, c);</span>
+<span class="fc" id="L71">		c = servico.update(id, c);</span>
 		
-<span class="nc" id="L71">		return ResponseEntity.ok().body(c);</span>
+<span class="fc" id="L73">		return ResponseEntity.ok().body(c);</span>
 	}
 
 }

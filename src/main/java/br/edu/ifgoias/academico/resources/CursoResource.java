@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -56,10 +57,11 @@ public class CursoResource {
 	
 	@DeleteMapping (value = "/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void delete(@PathVariable Integer id){
+	public boolean delete(@PathVariable Integer id){
 		
 		servico.delete(id);
-	
+		
+		return true;
 	}
 	
 	@PutMapping(value = "/{id}")
